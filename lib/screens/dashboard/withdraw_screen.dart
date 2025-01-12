@@ -34,7 +34,7 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
               children: const [
                 Icon(Icons.credit_card, color: Colors.amber),
                 SizedBox(width: 10),
-                Text("Withdrawal Balance",
+                Text("Withdraw Balance",
                     style: TextStyle(
                         color: Colors.blueAccent,
                         fontSize: 25,
@@ -50,7 +50,8 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
 
           // Part Two: Withdrawal Balance display
           Center(
-            child: _buildBalanceButton('Withdrawal Balance', withdrawalBalance),
+            child:
+                _buildBalanceButton('Withdrawable Balance', withdrawalBalance),
           ),
 
           const SizedBox(height: 20), // Gap between balance and action buttons

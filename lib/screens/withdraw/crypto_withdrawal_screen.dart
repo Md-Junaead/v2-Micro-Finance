@@ -9,45 +9,43 @@ class _CryptoWithdrawalScreenState extends State<CryptoWithdrawalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding:
-            const EdgeInsets.symmetric(vertical: 8.0), // 8% top & bottom space
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Part 1: Check Balance Button
-            Container(
+      body: Column(
+        children: [
+          // Part One: Withdrawal Balance at the top
+          Center(
+            child: Container(
+              // 8% margin from left and right
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height *
+                      0.08), // 8% top margin
               width: MediaQuery.of(context).size.width *
-                  0.9, // 5% margin from left & right
-              padding: EdgeInsets.symmetric(vertical: 15),
+                  0.84, // 8% margin from left and right
+              padding: const EdgeInsets.symmetric(vertical: 15),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                border:
+                    Border.all(color: Colors.black, width: 1), // Black border
+                borderRadius: BorderRadius.circular(10), // Rounded corners
+                color: Colors.white, // White background
               ),
-              margin: EdgeInsets.symmetric(
-                  horizontal:
-                      MediaQuery.of(context).size.width * 0.05), // 5% margin
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.currency_bitcoin,
-                    color: Colors.amberAccent,
-                    size: 45,
+                mainAxisAlignment: MainAxisAlignment.center, // Center contents
+                children: const [
+                  Icon(Icons.credit_card,
+                      color: Colors.amber), // Icon with amber color
+                  SizedBox(width: 10), // Space between icon and text
+                  Text(
+                    "Crypto Withdrawal",
+                    style: TextStyle(
+                      color: Colors.blueAccent, // Blue accent color for text
+                      fontSize: 25, // Font size for the text
+                      fontWeight: FontWeight.bold, // Bold text
+                    ),
                   ),
-                  SizedBox(width: 10),
-                  Text("Crypto Withdrawal",
-                      style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

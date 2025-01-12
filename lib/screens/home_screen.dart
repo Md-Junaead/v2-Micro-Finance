@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
     final List<Map<String, dynamic>> buttons = [
       {
         "icon": Icons.attach_money, // Icon for "Add Money"
-        "text": "Add Money", // Text label
+        "text": "Deposite", // Text label
         "screen": const AddMoneyScreen(), // Target screen for navigation
       },
       {

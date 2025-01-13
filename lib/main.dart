@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:v1_micro_finance/screens/home_screen.dart';
-import 'package:v1_micro_finance/screens/withdraw/bank_withdrawal_screen.dart';
 
 void main() {
   runApp(MicroFinance());

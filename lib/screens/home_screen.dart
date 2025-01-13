@@ -8,18 +8,17 @@ import 'package:v1_micro_finance/screens/dashboard/withdraw_screen.dart';
 
 // Main entry point of the application
 void main() {
-  runApp(const MyApp());
+  runApp(const MicroFinance());
 }
 
 // Root widget of the application
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MicroFinance extends StatelessWidget {
+  const MicroFinance({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Disable debug banner in the app
-      home: const HomeScreen(), // Set the HomeScreen as the initial screen
     );
   }
 }

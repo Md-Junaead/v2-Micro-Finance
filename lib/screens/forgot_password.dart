@@ -29,7 +29,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
             // Instruction text
             Text(
-              'Enter your email address below. We will send you instructions to reset your password.',
+              'Enter your email address below',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),

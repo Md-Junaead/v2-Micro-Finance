@@ -1,84 +1,154 @@
 import 'package:flutter/material.dart';
+import 'package:v1_micro_finance/screens/dashboard/add_money_screen.dart';
 import 'package:v1_micro_finance/screens/dashboard/check_balance_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/packages_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/quick_loan_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/referrals_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/withdraw_screen.dart';
 
+// Main entry point of the application
 void main() {
   runApp(const MyApp());
 }
 
+// Root widget of the application
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false, // Disable debug banner in the app
+      home: const HomeScreen(), // Set the HomeScreen as the initial screen
     );
   }
 }
 
+// Home screen of the app
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // List of buttons with their icons, text, and respective screens
     final List<Map<String, dynamic>> buttons = [
-      {"icon": Icons.attach_money, "text": "Add Money", "route": "add_money"},
       {
-        "icon": Icons.account_balance,
-        "text": "Check Balance",
-        "screen": const CheckBalanceScreen(),
-        // "route": "check_balance"
+        "icon": Icons.attach_money, // Icon for "Add Money"
+        "text": "Deposite", // Text label
+        "screen": const AddMoneyScreen(), // Target screen for navigation
       },
-      {"icon": Icons.money_off, "text": "Withdraw", "route": "withdraw"},
-      {"icon": Icons.people, "text": "Referrals", "route": "referrals"},
-      {"icon": Icons.speed, "text": "Quick Loan", "route": "quick_loan"},
-      {"icon": Icons.card_giftcard, "text": "Packages", "route": "packages"},
+      {
+        "icon": Icons.account_balance, // Icon for "Check Balance"
+        "text": "Check Balance",
+        "screen": CheckBalanceScreen(),
+      },
+      {
+        "icon": Icons.money_off, // Icon for "Withdraw"
+        "text": "Withdraw",
+        "screen": WithdrawScreen(),
+      },
+      {
+        "icon": Icons.people, // Icon for "Referrals"
+        "text": "Referrals",
+        "screen": const ReferralsScreen(),
+      },
+      {
+        "icon": Icons.speed, // Icon for "Quick Loan"
+        "text": "Quick Loan",
+        "screen": const QuickLoanScreen(),
+      },
+      {
+        "icon": Icons.card_giftcard, // Icon for "Packages"
+        "text": "Packages",
+        "screen": const PackagesScreen(),
+      },
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("DashBoard"),
-        centerTitle: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(120), // Adjust AppBar height
+        child: Container(
+          margin: const EdgeInsets.only(top: 60), // Move AppBar 80px down
+          child: AppBar(
+            // AppBar with custom title layout
+            title: Padding(
+              padding: const EdgeInsets.only(
+                left: 1, // Left padding for the title
+                right: 1, // Right padding for the title
+                top: 1, // Top padding for the title
+                bottom: 1, // Bottom padding for the title
+              ),
+              child: Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.center, // Center-align title
+                children: [
+                  const Icon(
+                    Icons.account_balance, // Dashboard icon
+                    size: 80, // Icon size
+                    color: Colors.blueAccent, // Icon color
+                  ),
+                  const SizedBox(width: 10), // Spacing between icon and text
+                  const Text(
+                    "Dashboard", // Dashboard title
+                    style: TextStyle(
+                      fontSize: 30, // Font size
+                      color: Colors.blueAccent, // Text color
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            centerTitle: true, // Center the AppBar title
+          ),
+        ),
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20), // 5% margin
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.8, // Center horizontally
           child: GridView.builder(
-            shrinkWrap: true,
+            shrinkWrap: true, // Ensure GridView takes minimal height
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Two buttons per row
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
-              childAspectRatio: 1, // Square buttons
+              crossAxisCount: 2, // Two columns in the grid
+              mainAxisSpacing: 20, // Vertical spacing between grid items
+              crossAxisSpacing: 20, // Horizontal spacing between grid items
+              childAspectRatio: 1, // Square grid items
             ),
-            itemCount: buttons.length,
+            itemCount: buttons.length, // Number of grid items
             itemBuilder: (context, index) {
-              final button = buttons[index];
+              final button = buttons[index]; // Get button data for the index
               return GestureDetector(
                 onTap: () {
+                  // Navigate to the respective screen on button tap
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => CheckBalanceScreen()),
-                    // builder: (context) => RouteScreen(button["screen"])),
+                      builder: (context) => button["screen"], // Target screen
+                    ),
                   );
                 },
                 child: Container(
+                  // Button appearance
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius:
-                        BorderRadius.circular(10), // 10px border radius
+                    color: Colors.blueAccent, // Background color
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
                   child: Column(
+                    // Align icon and text in the button
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(button["icon"], size: 50, color: Colors.white),
-                      const SizedBox(height: 10),
+                      Icon(
+                        button["icon"], // Button icon
+                        size: 50, // Icon size
+                        color: Colors.white, // Icon color
+                      ),
+                      const SizedBox(height: 10), // Spacing below the icon
                       Text(
-                        button["text"],
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 16),
+                        button["text"], // Button text
+                        style: const TextStyle(
+                          color: Colors.white, // Text color
+                          fontSize: 16, // Text size
+                        ),
                       ),
                     ],
                   ),
@@ -86,24 +156,6 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class RouteScreen extends StatelessWidget {
-  final String routeName;
-  const RouteScreen(this.routeName, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(routeName.replaceAll("_", " ").toUpperCase())),
-      body: Center(
-        child: Text(
-          "This is the $routeName screen",
-          style: const TextStyle(fontSize: 18),
         ),
       ),
     );

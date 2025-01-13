@@ -11,7 +11,7 @@ class ReferralsScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          "This is the Referrals Screen",
+          "Can you hear me Referrals Screen",
           style: TextStyle(fontSize: 18),
         ),
       ),

@@ -11,7 +11,7 @@ class QuickLoanScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          "This is the Quick Loan Screen",
+          "Can you hear me Quick Loan Screen",
           style: TextStyle(fontSize: 18),
         ),
       ),

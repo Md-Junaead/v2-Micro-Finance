@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v1_micro_finance/screens/forgot_password.dart';
 import 'package:v1_micro_finance/screens/home_screen.dart';
 import 'package:v1_micro_finance/screens/signup_screen.dart'; // Replace with the correct path
 
@@ -37,7 +38,7 @@ class _SignInScreenState extends State<SignInScreen> {
         title: Text('Micro Bank'),
         centerTitle: true,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -108,15 +109,36 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 16),
 
             // Forgot Password Link
-            Text(
-              'Forgot Password?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
+            // Text(
+            //   'Forgot Password?',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(
+            //     fontSize: 14,
+            //     color: Colors.grey,
+            //   ),
+            // ),
+
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ForgotPasswordScreen()),
+                );
+              },
+              child: Text(
+                'Forget Password?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
+
             SizedBox(height: 8),
+
             // Sign-Up Link
             GestureDetector(
               onTap: () {

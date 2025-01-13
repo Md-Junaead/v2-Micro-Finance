@@ -8,7 +8,8 @@ class AddMoneyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Add Money")),
       body: const Center(
-        child: Text("Can You hear me Dart?", style: TextStyle(fontSize: 18)),
+        child:
+            Text("Can You hear me Add Money?", style: TextStyle(fontSize: 18)),
       ),
     );
   }

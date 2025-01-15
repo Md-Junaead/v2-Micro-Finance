@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:v1_micro_finance/screens/bottom/home_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/check_balance_screen.dart';
+import 'package:v1_micro_finance/screens/withdraw/bank_withdrawal_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   // List of buttons with titles, icons, and corresponding screens
@@ -6,13 +9,17 @@ class ProfileScreen extends StatelessWidget {
     {
       "title": "My Account",
       "icon": Icons.person,
-      "screen": 'my_account_screen.dart'
+      "screen": CheckBalanceScreen(),
     },
-    {"title": "Nominee", "icon": Icons.group, "screen": 'nominee_screen.dart'},
+    {
+      "title": "Nominee",
+      "icon": Icons.group,
+      "screen": BankWithdrawalScreen(),
+    },
     {
       "title": "Address",
       "icon": Icons.location_on,
-      "screen": 'address_screen.dart'
+      "screen": HomeScreen(),
     },
     {
       "title": "Settings",
@@ -35,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
         // Ensures the content does not overlap system UI elements like the status bar or notch
         child: SingleChildScrollView(
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -50,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20), // Space below the title
+                SizedBox(height: 10), // Space below the title
 
                 // Part 2: User Info Section
                 Container(
@@ -63,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       // Left Section: Profile Picture
                       CircleAvatar(
-                        radius: 40, // Circle size
+                        radius: 25, // Circle size
                         backgroundColor: Colors.grey, // Gray background color
                         child: Icon(
                           Icons.person, // User icon
@@ -73,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       SizedBox(
                           width:
-                              20), // Space between profile picture and user info
+                              10), // Space between profile picture and user info
 
                       // Middle Section: User Info (Name & ID)
                       Expanded(
@@ -90,7 +97,7 @@ class ProfileScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                                height: 5), // Space between user name and ID
+                                height: 01), // Space between user name and ID
                             Text(
                               'User ID: 123456', // Replace this with dynamic data from API
                               style: TextStyle(
@@ -138,17 +145,25 @@ class ProfileScreen extends StatelessWidget {
                   return GestureDetector(
                     // Trigger navigation when button is tapped
                     onTap: () {
-                      Navigator.pushNamed(context, button['screen']);
+                      // Navigate to the respective screen on button tap
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              button["screen"], // Target screen
+                        ),
+                      );
                     },
                     child: Container(
                       margin: const EdgeInsets.only(
-                          bottom: 15), // Space between buttons
+                          bottom: 8), // Space between buttons
                       padding: const EdgeInsets.symmetric(
-                          vertical: 15), // Vertical padding for button
+                          vertical: 10), // Vertical padding for button
                       decoration: BoxDecoration(
                         borderRadius:
-                            BorderRadius.circular(40), // Rounded button corners
-                        color: Colors.grey[300], // Light gray button background
+                            BorderRadius.circular(30), // Rounded button corners
+                        color:
+                            Colors.blueAccent, // Light gray button background
                       ),
                       child: Row(
                         children: [
@@ -159,7 +174,7 @@ class ProfileScreen extends StatelessWidget {
                               button[
                                   'icon'], // Icon dynamically fetched from list
                               size: 30, // Icon size
-                              color: Colors.blueAccent, // Icon color
+                              color: Colors.white, // Icon color
                             ),
                           ),
 
@@ -171,7 +186,7 @@ class ProfileScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 18, // Font size for button title
                                 fontWeight: FontWeight.bold, // Bold text
-                                color: Colors.blueAccent, // Text color
+                                color: Colors.white, // Text color
                               ),
                             ),
                           ),
@@ -184,7 +199,7 @@ class ProfileScreen extends StatelessWidget {
                               Icons
                                   .arrow_forward_ios, // Arrow icon indicating navigation
                               size: 20,
-                              color: Colors.blueAccent, // Icon size
+                              color: Colors.white, // Icon size
                             ),
                           ),
                         ],

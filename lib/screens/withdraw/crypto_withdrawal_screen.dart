@@ -13,6 +13,7 @@ class _CryptoWithdrawalScreenState extends State<CryptoWithdrawalScreen> {
 
   // Controllers for capturing input values
   final TextEditingController walletIdController = TextEditingController();
+  final TextEditingController ammountController = TextEditingController();
 
   // Variable to store the selected wallet type
   String selectedWallet = "BTC";
@@ -190,6 +191,20 @@ class _CryptoWithdrawalScreenState extends State<CryptoWithdrawalScreen> {
                         return null;
                       },
                     ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    TextFormField(
+                      controller: ammountController,
+                      decoration: InputDecoration(
+                        labelText: 'Enter Withdrawal Ammount',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please Enter Withdrawal Ammount';
+                        }
+                        return null;
+                      },
+                    ),
                     SizedBox(
                         height: MediaQuery.of(context).size.height *
                             0.05), // 5% margin top
@@ -209,7 +224,8 @@ class _CryptoWithdrawalScreenState extends State<CryptoWithdrawalScreen> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
-                        backgroundColor: Colors.grey, // Button color
+                        backgroundColor: Colors.grey,
+                        // Button color
                       ),
                     ),
                   ],

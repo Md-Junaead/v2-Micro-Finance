@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:v1_micro_finance/screens/signin_screen.dart';
-import 'package:v1_micro_finance/screens/verification.dart';
+import 'package:v1_micro_finance/configs/routes/routes_name.dart';
+import 'package:v1_micro_finance/screens/auth/signin_screen.dart';
+import 'package:v1_micro_finance/screens/auth/verification.dart';
 
 class SignupScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -277,10 +278,7 @@ class SignupScreen extends StatelessWidget {
               // Sign-in Link
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()),
-                  );
+                  Navigator.pushNamed(context, RoutesName.signInScreen);
                 },
                 child: Text(
                   'Already? Sign in',

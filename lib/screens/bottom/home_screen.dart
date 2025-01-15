@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v1_micro_finance/screens/dashboard/add_money_screen.dart';
+import 'package:v1_micro_finance/screens/dashboard/deposit_screen.dart';
 import 'package:v1_micro_finance/screens/dashboard/check_balance_screen.dart';
 import 'package:v1_micro_finance/screens/dashboard/packages_screen.dart';
 import 'package:v1_micro_finance/screens/dashboard/quick_loan_screen.dart';
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
       {
         "icon": Icons.attach_money, // Icon for "Add Money"
         "text": "Deposite", // Text label
-        "screen": const AddMoneyScreen(), // Target screen for navigation
+        "screen": DepositScreen(), // Target screen for navigation
       },
       {
         "icon": Icons.account_balance, // Icon for "Check Balance"
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
       {
         "icon": Icons.card_giftcard, // Icon for "Packages"
         "text": "Packages",
-        "screen": const PackagesScreen(),
+        "screen": PackagesScreen(),
       },
     ];
 

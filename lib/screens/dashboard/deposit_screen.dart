@@ -5,7 +5,7 @@ class DepositScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'Can you hear me about us screen?',
+        'Can you hear me Deposit screen?',
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );

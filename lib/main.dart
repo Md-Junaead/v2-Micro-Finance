@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:v1_micro_finance/configs/routes/routes.dart';
 import 'package:v1_micro_finance/configs/routes/routes_name.dart';
-import 'package:v1_micro_finance/test/test.dart';
 
 void main() {
   runApp(MicroFinance());
@@ -15,7 +14,7 @@ class MicroFinance extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
       // this is the initial route indicating from where our app will start
-      initialRoute: RoutesName.testScreen,
+      initialRoute: RoutesName.nomineeScreen,
       onGenerateRoute: Routes.generateRoute, // Name of Open screen
     );
   }

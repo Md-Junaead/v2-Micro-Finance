@@ -55,4 +55,10 @@ class RoutesName {
 
   //ProfileScreen routes name
   static const String profileScreen = 'ProfileScreen';
+
+  //NomineeScreen routes name
+  static const String nomineeScreen = 'NomineeScreen';
+
+  //UserScreen routes name
+  static const String userScreen = 'UserScreen';
 }

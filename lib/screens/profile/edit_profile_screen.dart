@@ -5,7 +5,7 @@ class EditProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'Welcome to the Profile Screen',
+        'Welcome to the Edit Profile Screen',
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );

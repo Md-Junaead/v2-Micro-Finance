@@ -1,44 +1,58 @@
-import 'package:flutter/material.dart'; // Import TestScreen
-import 'package:v1_micro_finance/configs/routes/routes_name.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bank App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-    );
-  }
-}
+import 'package:flutter/material.dart';
 
 class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test Screen'),
-        backgroundColor: Color(0xFF06426D),
+        title: Text('App Referral'),
       ),
       body: Center(
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, RoutesName.homeScreen);
-          },
-          child: Text(
-            'Click Me',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF06426D),
-              fontWeight: FontWeight.bold,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Invite Friends\nto Get 10 BUSD each\n& Earn Commissions',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24.0),
             ),
-          ),
+            SizedBox(height: 20.0),
+            // Image of the phone with the spinning wheel
+            Image.asset(
+              'assets/phone_wheel.png', // Replace with your image path
+              width: 200.0,
+              height: 200.0,
+            ),
+            SizedBox(height: 20.0),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Referral Link',
+                suffixIcon: Icon(Icons.copy),
+              ),
+              controller: TextEditingController(text: 'thuonghtf'),
+              readOnly: true,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Referral Code',
+                suffixIcon: Icon(Icons.copy),
+              ),
+              controller: TextEditingController(text: '26007'),
+              readOnly: true,
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                // Handle invite action here
+              },
+              child: Text('Invite'),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Enter refer code & get 10 BUSD',
+              style: TextStyle(fontSize: 16.0),
+            ),
+          ],
         ),
       ),
     );

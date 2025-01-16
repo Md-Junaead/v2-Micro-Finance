@@ -53,6 +53,6 @@ class RoutesName {
   //TestScreen routes name
   static const String testScreen = 'TestScreen';
 
-  //TestScreen routes name
+  //ProfileScreen routes name
   static const String profileScreen = 'ProfileScreen';
 }

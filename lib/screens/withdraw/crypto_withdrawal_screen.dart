@@ -194,6 +194,7 @@ class _CryptoWithdrawalScreenState extends State<CryptoWithdrawalScreen> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     TextFormField(
                       controller: ammountController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Withdrawal Ammount',
                         border: OutlineInputBorder(),

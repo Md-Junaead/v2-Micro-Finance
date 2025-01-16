@@ -69,6 +69,7 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.only(top: 60), // Move AppBar 80px down
           child: AppBar(
+            automaticallyImplyLeading: false,
             // AppBar with custom title layout
             title: Padding(
               padding: const EdgeInsets.only(

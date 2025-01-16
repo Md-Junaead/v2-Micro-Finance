@@ -122,6 +122,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                     // Account Number Input Field
                     TextFormField(
                       controller: accountNumberController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Account Number',
                         border: OutlineInputBorder(),
@@ -154,6 +155,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                     // Routing Number Input Field
                     TextFormField(
                       controller: routingNumberController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Routing Number',
                         border: OutlineInputBorder(),
@@ -186,6 +188,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                             0.01), // 5% margin top
                     TextFormField(
                       controller: ammountController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Withdrawal Ammount',
                         border: OutlineInputBorder(),

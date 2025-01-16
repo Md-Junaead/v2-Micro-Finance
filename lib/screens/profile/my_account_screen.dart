@@ -13,7 +13,7 @@ class UserScreen extends StatelessWidget {
       'email': 'sfl@example.com',
       'phone': '+1234567890',
       'dob': '01-01-1990',
-      'relation': 'Company'
+      'Address': '5/2, Uttora 04'
     };
 
     return Scaffold(
@@ -31,14 +31,14 @@ class UserScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 _buildDetailRow(
-                    Icons.person, 'User Name:', nomineeData['name']!),
+                    Icons.person, 'Full Name:', nomineeData['name']!),
                 _buildDetailRow(Icons.email, 'Email:', nomineeData['email']!),
                 _buildDetailRow(
                     Icons.phone, 'Phone Number:', nomineeData['phone']!),
                 _buildDetailRow(
                     Icons.cake, 'Date of Birth:', nomineeData['dob']!),
-                _buildDetailRow(Icons.group, 'Relation with User:',
-                    nomineeData['relation']!),
+                _buildDetailRow(
+                    Icons.group, 'Address:', nomineeData['Address']!),
                 const SizedBox(height: 40), // Spacing before the button
                 Center(
                   child: ElevatedButton(

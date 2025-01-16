@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:v1_micro_finance/configs/routes/routes_name.dart';
 import 'package:v1_micro_finance/screens/bottom/home_screen.dart';
-import 'package:v1_micro_finance/screens/dashboard/check_balance_screen.dart';
-import 'package:v1_micro_finance/screens/withdraw/bank_withdrawal_screen.dart';
+import 'package:v1_micro_finance/screens/profile/my_account_screen.dart';
+import 'package:v1_micro_finance/screens/profile/nominee_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   // List of buttons with titles, icons, and corresponding screens
@@ -9,12 +10,12 @@ class ProfileScreen extends StatelessWidget {
     {
       "title": "My Account",
       "icon": Icons.person,
-      "screen": CheckBalanceScreen(),
+      "screen": UserScreen(),
     },
     {
       "title": "Nominee",
       "icon": Icons.group,
-      "screen": BankWithdrawalScreen(),
+      "screen": NomineeScreen(),
     },
     {
       "title": "Address",
@@ -115,8 +116,8 @@ class ProfileScreen extends StatelessWidget {
                         child: Center(
                           child: ElevatedButton(
                             onPressed: () {
-                              // Navigates to the edit profile screen
-                              Navigator.pushNamed(context, '/edit_profile');
+                              Navigator.pushNamed(
+                                  context, RoutesName.editProfileScreen);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:

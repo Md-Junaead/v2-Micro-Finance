@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:v1_micro_finance/configs/routes/routes_name.dart';
 import 'package:v1_micro_finance/screens/auth/forgot_password.dart';
-import 'package:v1_micro_finance/screens/bottom/home_screen.dart';
-import 'package:v1_micro_finance/screens/auth/signup_screen.dart'; // Replace with the correct path
+import 'package:v1_micro_finance/screens/bottom/home_screen.dart'; // Replace with the correct path
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -36,6 +35,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Micro Bank'),
         centerTitle: true,
       ),

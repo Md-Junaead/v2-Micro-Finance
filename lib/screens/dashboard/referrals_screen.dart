@@ -1,135 +1,103 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ReferralsScreen extends StatelessWidget {
+class ReferralsScreen extends StatefulWidget {
   const ReferralsScreen({super.key});
 
-  // Sample referral link and code
-  final String referralLink = "https://example.com/referral";
-  final String referralCode = "REF12345";
+  @override
+  State<ReferralsScreen> createState() => _ReferralsScreenState();
+}
 
-  void copyToClipboard(BuildContext context, String text) {
-    Clipboard.setData(ClipboardData(text: text));
+class _ReferralsScreenState extends State<ReferralsScreen> {
+  final String referralCode = "AKGE452V"; // This will be fetched from an API
+
+  void _copyReferralCode() {
+    Clipboard.setData(ClipboardData(text: referralCode));
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Copied to Clipboard: $text")),
+      const SnackBar(content: Text("Referral code copied!")),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Referral Program",
-          style: TextStyle(color: Colors.black),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(
+            kToolbarHeight + MediaQuery.of(context).size.height * 0.03),
+        child: AppBar(
+          centerTitle: true,
+          title: Padding(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height *
+                    0.03), // Moves text 5% down
+            child: const Text("Refer & Earn"),
+          ),
+          backgroundColor: Colors.blueAccent,
+          titleTextStyle: TextStyle(
+              color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
+          ),
         ),
-        backgroundColor: Colors.red,
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Background Image with Text Overlay
-              Stack(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.6,
-                    margin: const EdgeInsets.symmetric(horizontal: 30.0),
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/ImageOne.jpeg"),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  Positioned(
-                    top: 50,
-                    left: 40,
-                    right: 40,
-                    child: Container(
-                      padding: const EdgeInsets.all(16.0),
-                      color: Colors.black.withOpacity(0.6),
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: const TextSpan(
-                          text: "Invite Friends to Get ",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                          children: [
-                            TextSpan(
-                              text: "10%",
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: " of your Referral's first deposit"),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              const Text(
+                "Copy your code & Share with your Friends to get 10% of Referral's First Deposit",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 20),
-
-              // Referral Details Section
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               Container(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  border: Border.all(color: Colors.grey.shade300),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    buildReferralRow("Referral Link", referralLink, context),
-                    buildReferralRow("Referral Code", referralCode, context),
+                    const Text(
+                      "Your Personal Code",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                     const SizedBox(height: 10),
-
-                    // Invite Button
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Text(
-                          "Invite",
-                          style: TextStyle(color: Colors.red, fontSize: 18),
-                        ),
-                      ),
-                    ),
-
-                    // Dotted Border
                     Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: const BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(
-                                color: Colors.red,
-                                width: 1.0,
-                                style: BorderStyle.solid)),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(
+                            10), // 10px border radius for all sides
                       ),
-                    ),
-
-                    // Enter Referral Code
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/enter_code_screen');
-                      },
+                      padding: const EdgeInsets.all(10.0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.qr_code, color: Colors.red),
-                          SizedBox(width: 5),
-                          Text(
-                            "Enter Referral Code & Get 10%",
-                            style: TextStyle(color: Colors.red, fontSize: 16),
+                        children: [
+                          Expanded(
+                            child: Text(
+                              referralCode,
+                              style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: _copyReferralCode,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                            ),
+                            child: const Text(
+                              "Copy",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ],
                       ),
@@ -140,35 +108,6 @@ class ReferralsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  // Method to create referral row
-  Widget buildReferralRow(String label, String value, BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(color: Colors.white, fontSize: 16),
-          ),
-          Row(
-            children: [
-              Text(
-                value,
-                style: const TextStyle(color: Colors.white, fontSize: 16),
-              ),
-              const SizedBox(width: 10),
-              GestureDetector(
-                onTap: () => copyToClipboard(context, value),
-                child: const Icon(Icons.copy, color: Colors.white),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

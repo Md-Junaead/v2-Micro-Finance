@@ -40,7 +40,7 @@ class _CheckBalanceScreenState extends State<CheckBalanceScreen> {
                 children: [
                   Icon(Icons.sticky_note_2, color: Colors.blueAccent),
                   SizedBox(width: 10),
-                  Text("Check Balance",
+                  Text("Balance",
                       style: TextStyle(
                           color: Colors.blueAccent,
                           fontSize: 25,

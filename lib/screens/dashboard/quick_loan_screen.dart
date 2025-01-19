@@ -10,7 +10,16 @@ class QuickLoanScreen extends StatefulWidget {
 class _QuickLoanScreenState extends State<QuickLoanScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Quick Loan'),
+      ),
+      body: const Center(
+        child: Text(
+          'This is Quick Loan Screen',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 }
- 

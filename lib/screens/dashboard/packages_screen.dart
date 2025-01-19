@@ -251,7 +251,7 @@ class PackagesScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Package 5',
+                      'User Profile',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,

@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:v1_micro_finance/configs/routes/routes_name.dart';
-import 'package:v1_micro_finance/screens/auth/signin_screen.dart';
 import 'package:v1_micro_finance/screens/auth/verification.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -112,12 +111,12 @@ class SignupScreen extends StatelessWidget {
               TextFormField(
                 controller: fullNameController,
                 decoration: InputDecoration(
-                  labelText: 'User Name',
+                  labelText: 'Full Name',
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter your User name';
+                    return 'Please enter your Full name';
                   }
                   return null;
                 },
@@ -135,22 +134,6 @@ class SignupScreen extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty || value.length < 8) {
                     return 'Password must be at least 8 characters';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 16),
-
-              // Full Name Field
-              TextFormField(
-                controller: fullNameController,
-                decoration: InputDecoration(
-                  labelText: 'Full Name',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your Full name';
                   }
                   return null;
                 },
@@ -177,11 +160,11 @@ class SignupScreen extends StatelessWidget {
               // Phone Number Field
               TextFormField(
                 controller: phoneController,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'Phone Number',
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your phone number';
@@ -198,7 +181,7 @@ class SignupScreen extends StatelessWidget {
                   labelText: 'Date of Birth (MM/DD/YYYY)',
                   border: OutlineInputBorder(),
                 ),
-                keyboardType: TextInputType.datetime,
+                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your Date of Birth';

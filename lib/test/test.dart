@@ -1,58 +1,112 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class TestScreen extends StatelessWidget {
+class TestScreen extends StatefulWidget {
+  const TestScreen({super.key});
+
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  final String referralCode = "AKGE452V"; // This will be fetched from an API
+
+  void _copyReferralCode() {
+    Clipboard.setData(ClipboardData(text: referralCode));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Referral code copied!")),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('App Referral'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(
+            kToolbarHeight + MediaQuery.of(context).size.height * 0.03),
+        child: AppBar(
+          centerTitle: true,
+          title: Padding(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height *
+                    0.03), // Moves text 5% down
+            child: const Text("Refer & Earn"),
+          ),
+          backgroundColor: Colors.blueAccent,
+          titleTextStyle: TextStyle(
+              color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
+          ),
+        ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Invite Friends\nto Get 10 BUSD each\n& Earn Commissions',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 24.0),
-            ),
-            SizedBox(height: 20.0),
-            // Image of the phone with the spinning wheel
-            Image.asset(
-              'assets/phone_wheel.png', // Replace with your image path
-              width: 200.0,
-              height: 200.0,
-            ),
-            SizedBox(height: 20.0),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Referral Link',
-                suffixIcon: Icon(Icons.copy),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              const Text(
+                "Copy your code & Share with your Friends to get 10% of Referral's First Deposit",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              controller: TextEditingController(text: 'thuonghtf'),
-              readOnly: true,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Referral Code',
-                suffixIcon: Icon(Icons.copy),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade300),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Your Personal Code",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(
+                            10), // 10px border radius for all sides
+                      ),
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              referralCode,
+                              style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: _copyReferralCode,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                            ),
+                            child: const Text(
+                              "Copy",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              controller: TextEditingController(text: '26007'),
-              readOnly: true,
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Handle invite action here
-              },
-              child: Text('Invite'),
-            ),
-            SizedBox(height: 10.0),
-            Text(
-              'Enter refer code & get 10 BUSD',
-              style: TextStyle(fontSize: 16.0),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -14,7 +14,7 @@ class MicroFinance extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
       // this is the initial route indicating from where our app will start
-      initialRoute: RoutesName.referralsScreen,
+      initialRoute: RoutesName.testScreen,
       onGenerateRoute: Routes.generateRoute, // Name of Open screen
     );
   }

@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
       {
         "icon": Icons.people, // Icon for "Referrals"
         "text": "Referrals",
-        "screen": const ReferralsScreen(),
+        "screen": ReferralsScreen(),
       },
       {
         "icon": Icons.speed, // Icon for "Quick Loan"

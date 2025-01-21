@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class QuickLoanScreen extends StatefulWidget {
-  const QuickLoanScreen({super.key});
+class DepositScreen extends StatefulWidget {
+  const DepositScreen({super.key});
 
   @override
-  State<QuickLoanScreen> createState() => _QuickLoanScreenState();
+  State<DepositScreen> createState() => _DepositScreenState();
 }
 
-class _QuickLoanScreenState extends State<QuickLoanScreen> {
+class _DepositScreenState extends State<DepositScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quick Loan'),
+        title: const Text('Deposite Screen'),
       ),
       body: const Center(
         child: Text(
-          'This is Quick Loan Screen',
+          'This is Deposite Screen',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),

@@ -1,11 +1,18 @@
 name: v1_micro_finance
+# Description of the project
 description: "A new Flutter project."
+
+# Prevents the package from being published
 publish_to: 'none'
+
+# Version of the project
 version: 0.1.0
 
+# Flutter SDK environment requirement
 environment:
   sdk: ^3.6.0
 
+# Project dependencies
 dependencies:
   flutter:
     sdk: flutter
@@ -13,11 +20,31 @@ dependencies:
   http: ^1.2.2
   image_picker: ^1.1.2
   http_parser: ^4.1.2
+  url_launcher: ^6.0.9
 
+# Developer dependencies for testing and linting
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+# Flutter-specific configurations
 flutter:
   uses-material-design: true
+
+  # Assets declaration
+  assets:
+    - assets/image_one.jpeg
+    - assets/image_two.jpeg
+    - assets/image_three.jpeg
+
+  # Fonts declaration
+  fonts:
+    - family: AveriaLibre
+      fonts:
+        - asset: assets/fonts/AveriaLibre-Bold.ttf
+        - asset: assets/fonts/AveriaLibre-BoldItalic.ttf
+        - asset: assets/fonts/AveriaLibre-Italic.ttf
+        - asset: assets/fonts/AveriaLibre-Light.ttf
+        - asset: assets/fonts/AveriaLibre-LightItalic.ttf
+        - asset: assets/fonts/AveriaLibre-Regular.ttf

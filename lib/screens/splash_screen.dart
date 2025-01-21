@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:v1_micro_finance/screens/signin_screen.dart';
+import 'package:v1_micro_finance/screens/auth/signin_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:v1_micro_finance/screens/buttom/package_screen.dart';
-import 'package:v1_micro_finance/screens/home_screen.dart';
+import 'package:v1_micro_finance/configs/routes/routes.dart';
+import 'package:v1_micro_finance/configs/routes/routes_name.dart';
 
 void main() {
   runApp(MicroFinance());
@@ -13,7 +13,9 @@ class MicroFinance extends StatelessWidget {
       title: 'Finance App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomeScreen(), // Use BottomNavBar as the home screen
+      // this is the initial route indicating from where our app will start
+      initialRoute: RoutesName.signupScreen,
+      onGenerateRoute: Routes.generateRoute, // Name of Open screen
     );
   }
 }

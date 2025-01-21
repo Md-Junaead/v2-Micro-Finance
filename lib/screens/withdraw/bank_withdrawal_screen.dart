@@ -17,6 +17,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
   final TextEditingController bankNameController = TextEditingController();
   final TextEditingController routingNumberController = TextEditingController();
   final TextEditingController swiftCodeController = TextEditingController();
+  final TextEditingController ammountController = TextEditingController();
 
   // Demo POST API Function
   Future<void> submitBankWithdrawal() async {
@@ -116,11 +117,12 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                     // Account Number Input Field
                     TextFormField(
                       controller: accountNumberController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Account Number',
                         border: OutlineInputBorder(),
@@ -132,7 +134,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                     // Bank Name Input Field
                     TextFormField(
@@ -148,11 +150,12 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                     // Routing Number Input Field
                     TextFormField(
                       controller: routingNumberController,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: 'Enter Routing Number',
                         border: OutlineInputBorder(),
@@ -164,7 +167,7 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                     // Swift Code Input Field
                     TextFormField(
@@ -176,6 +179,23 @@ class _BankWithdrawalScreenState extends State<BankWithdrawalScreen> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter swift code';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height *
+                            0.01), // 5% margin top
+                    TextFormField(
+                      controller: ammountController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: 'Enter Withdrawal Ammount',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please Enter Withdrawal Ammount';
                         }
                         return null;
                       },
